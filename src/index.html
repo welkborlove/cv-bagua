@@ -1,79 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-    <title>振兴的简历</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <style id="style"></style>
-    <div id="html"></div>
-    <div id="div1Wrapper">
-        <div id="div1"></div>
-    </div>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <title>李振兴的简历</title>
     <style>
         * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eee;
+            margin: 20px 0;
+        }
+
+        article {
+            width: 21cm;
+            min-height: 29.7cm;
+            background: white;
+            margin: 0 auto;
+            overflow: auto;
+            padding: 1em;
+        }
+    </style>
+    <style media="print">
+        body {
             margin: 0;
+        }
+    </style>
+    <style>
+        body {}
+
+        p {
+            margin: .3em 0;
+        }
+
+        h1 {
+            font-size: 25px;
+            margin-top: 0;
+        }
+
+        ol,
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+        }
+
+        a {
+            color: #999;
+            text-decoration: none;
+            border-bottom: 1px solid;
+        }
+
+        strong {
+            font-weight: normal;
+            color: #F60;
+        }
+
+        .bio {
+            position: relative;
+        }
+
+        .bio img {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .projects p {
+            color: #666;
+        }
+
+        .projects strong {
+            color: #f60;
+        }
+
+        .projects>ol {
+            list-style-position: inside;
             padding: 0;
         }
 
-        * {
-            box-sizing: border-box;
+        .projects>ol>li {
+            margin-bottom: 24px;
         }
 
-        *::after {
-            box-sizing: border-box;
+        .projects>ol>li>header {
+            display: flex;
+            justify-content: space-between;
         }
 
-        *::before {
-            box-sizing: border-box;
+        .projects>ol>li h3 {
+            display: inline-block;
         }
 
-        #demo {
+        .openSource header img {}
 
-            word-break: break-all;
+        .openSource>h2 {}
+
+        .openSource>ul>li {
+            display: flex;
+            justify-content: space-between;
         }
 
-        #div1 {
-            position: fixed;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 20px;
+        .openSource header {
+            display: flex;
+            justify-content: space-between;
         }
 
-        #div1::before {
-            content: '';
-            display: block;
-            position: absolute;
+        .skills {}
+        #skills{
+            width: 500px;
+            height: 270px;
+        }
+        .skills>.wrapper {
+            display: flex;
+            justify-content: space-around;
         }
 
-        #div1::after {
-            content: '';
-            display: block;
-            position: absolute;
+        .skills>.wrapper>#skills {}
+
+        .skills>.wrapper strong {
+            color: #f60;
         }
 
-        @media (max-width:500px) {
-            #html {
-                height: 50vh;
-                overflow: auto;
+        .skills>.wrapper>ul {}
+
+        .skills>.wrapper>ul>li {
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+    </style>
+    <style>
+        @media (max-width: 500px) {
+            body {
+                margin: 0;
             }
 
-            #div1Wrapper {
-                height: 50vh;
+            article {
+                width: auto;
+                height: auto;
             }
 
-            #div1 {
-                position: relative;
-                top: 0;
-                right: 0;
+            .bio img {
+                display: none;
+            }
+
+            .skills .wrapper {
+                flex-direction: column;
+            }
+
+            #skills {
+                width: auto;
             }
         }
     </style>
-    <script src="main.js"></script>
+    <style media="print">
+        #skills {
+            display: none;
+        }
+        </style>
+</head>
+
+<body>
+    <article>
+        <section class="bio">
+            <h1>李振兴</h1>
+            <img src="./images/2020.jpg" alt="" width="100" height="100">
+            <p>
+                男 | 28岁 | 前端工程师 | 深圳 | 学籍 : 大专
+            </p>
+            <p>
+                手机: 13432736015 | 微信：welkbor8888
+                邮箱：<a href="mailto:welkbor88@163.com">welkbor88@163.com</a>
+            </p>
+        </section>
+
+        <section class="projects">
+            <h2>项目经历</h2>
+            <ol>
+                <li>
+                    <header>
+                        <h3>money记账</h3>
+                        <span>
+                            <a href="https://github.com/welkborlove/money-JiZhang-2">源码链接</a>
+                            <a href="http://lizhenzhen.ren/money-JiZhang-2/#/money">项目预览</a>
+                        </span>
+                    </header>
+                    <p>money记账一款极简的记账应用
+                        也是一款基于<strong>Vue</strong>.<strong>VueRouter</strong>.<strong>Vuex</strong>.<strong>Typescript</strong>的单页面应用。
+                    </p>
+                    <p>这是我从自己的需求出发，特点是快速记账</p>
+                    <P><strong>用手机预览效果更好</strong></P>
+                </li>
+            </ol>
+            <h2>项目经历</h2>
+            <ol>
+                <li>
+                    <header>
+                        <h3>前航导航站点</h3>
+                        <span>
+                            <a href="https://github.com/welkborlove/nav-1">源码链接</a>
+                            <a href="http://lizhenzhen.ren/nav-1/dist/index.html">项目预览</a>
+                        </span>
+                    </header>
+                    <p>前航导航站点是一款简单的搜索站点</p>
+                    <p>技术用到了<strong>jQuery</strong>.LocalStorage.SVG Symbols和媒体查询</p>
+                </li>
+            </ol>
+        </section>
+        <section class="skills">
+            <h2>技能</h2>
+            <div class="wrapper">
+                <div id="skills"></div>
+                <ul>
+                    <li>熟悉掌握静态页面制作技巧，能将设计搞还原页面</li>
+                    <li>熟悉掌握Vue使用，包含 <strong>VueCli.</strong> <strong>VueRouter</strong>. Vuex</li>
+                    <li>熟悉ES6 包括 <strong>let/ const/ Promise/</strong> 析构赋值</li>
+                    <li>了解<strong>TypeScript</strong> 的使用 我的项目是TS实现的</li>
+                    <li>了解Webpack的配置和优化</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="others">
+            <h2>其他链接</h2>
+            <ul>
+                <li><a href="https://www.zhihu.com/people/li-zhen-zhen-46-42">我的知乎</a>目前写了十几篇文章</li>
+                <li><a href="https://github.com/welkborlove">我的 GitHub</a>也提交了很多次</li>
+            </ul>
+
+            <section class="openSource">
+                <h2>开源项目</h2>
+                <ol>
+                    <li>
+                        <header>
+                            <h3>自己写的 DOM 库</h3>
+                            <a href="https://github.com/welkborlove/dom-dcom1">源码链接</a>
+                        </header>
+                        <p>实现了<strong>元素选择</strong>，<strong>元素创建</strong>，<strong>事件委托</strong>，等常见功能</p>
+                    </li>
+                </ol>
+                <ol>
+                    <li>
+                        <header>
+                            <h3>比卡丘</h3>
+                            <span>
+                                <a href="https://github.com/welkborlove/pikachu-2">源码链接</a>
+                                <a href="http://lizhenzhen.ren/pikachu-2/dist/test.html">项目预览</a>
+                            </span>
+                        </header>
+                        <p>这是我在学习<strong>css3 和动画</strong>是制作的一个小作品</p>
+                    </li>
+                </ol>
+            </section>
+        </section>
+
+        <section class="">
+            <h2>教育经历</h2>
+            <p>
+                <span><time>2008年</time>~<time>2011</time></span>
+                广东机电职业学校
+            </p>
+        </section>
+    </article>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.6.0/echarts.min.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>

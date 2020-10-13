@@ -118,38 +118,52 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-var html = document.querySelector('#html');
-var style = document.querySelector('#style');
-var string = "\n/*\u4F60\u597D,\u6211\u662F\u4E2A\u524D\u7AEF\u65B0\u4EBA\n\u63A5\u4E0B\u6765\u6211\u8981\u53D8\u4E00\u4E2A\u76D2\u5B50\n*/\n#div1{\n    border: 1px solid red;\n    width: 200px;\n    height: 200px;\n}\n/* \u6211\u8981\u628Adiv \u53D8\u6210\u4E00\u4E2A\u516B\u5366\u56FE\n *\u6CE8\u610F\u4E86\n *\u9996\u5148 \u628Adiv\u53D8\u6210\u4E00\u4E2A\u5706\n */\n#div1{\n    border-radius: 50%;\n    box-shadow: 0 0 3px rgba(0,0,0,0.5);\n    border: none;\n}\n/* \u516B\u5366\u662F\u9634\u9633\u5F62\u6210\u7684\n* \u4E00\u9ED1\u4E00\u767D\n**/\n#div1{\n    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);\n}\n/* \u52A0\u4E24\u4E2A\u795E\u79D8\u7684\u5C0F\u7403 */\n#div1::before{\n    width: 100px;\n    height: 100px;\n    top: 0;\n    left: 50%;\n    transform: translateX(-50%);\n    background: #000;\n    border-radius: 50%;\n    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);\n}\n#div1::after{\n    width: 100px;\n    height: 100px;\n    bottom: 0;\n    left: 50%;\n    transform: translateX(-50%);\n    background: #fff;\n    border-radius: 50%;\n    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%);\n}\n";
-var string2 = "";
-var n = 0;
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('skills')); // 指定图表的配置项和数据
 
-var step = function step() {
-  setTimeout(function () {
-    //如果是回车，就不照搬
-    //如果不是回车就照搬
-    if (string[n] === "\n") {
-      string2 += "<br>";
-    } else if (string[n] === " ") {
-      string2 += "&nbsp;";
-    } else {
-      string2 += string[n];
-    }
+option = {
+  radar: {
+    // shape: 'circle',
+    name: {
+      textStyle: {
+        color: '#fff',
+        backgroundColor: '#999',
+        borderRadius: 3,
+        padding: [3, 5]
+      }
+    },
+    indicator: [{
+      name: '静态页面',
+      max: 100
+    }, {
+      name: '编程基础',
+      max: 100
+    }, {
+      name: 'Vue',
+      max: 100
+    }, {
+      name: '项目开发能力',
+      max: 100
+    }, {
+      name: '沟通能力',
+      max: 100
+    }, {
+      name: 'JS',
+      max: 100
+    }]
+  },
+  series: [{
+    name: '预算 vs 开销（Budget vs spending）',
+    type: 'radar',
+    // areaStyle: {normal: {}},
+    data: [{
+      value: [90, 85, 80, 85, 70, 88],
+      name: '能力雷达'
+    }]
+  }]
+}; // 使用刚指定的配置项和数据显示图表。
 
-    html.innerHTML = string2;
-    style.innerHTML = string.substring(0, n);
-    window.scrollTo(0, 99999);
-    html.scrollTo(0, 99999);
-
-    if (n < string.length - 1) {
-      //如果n不是最好一个 就继续
-      n += 1;
-      step();
-    }
-  }, 50);
-};
-
-step();
+myChart.setOption(option);
 },{}],"../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -178,7 +192,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64248" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63949" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
